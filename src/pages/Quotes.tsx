@@ -15,7 +15,10 @@ export const Quotes: FC = observer(() => {
       store?.tickers.fetchQuotesData()
     }
     timer.current = setInterval(() => {
-      if (document.visibilityState === 'visible') {
+      if (
+        document.visibilityState === 'visible' &&
+        store?.tickers.modalInfo === null
+      ) {
         store?.tickers.fetchQuotesData()
       }
     }, 5000)
