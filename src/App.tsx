@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <header className="flex justify-center gap-x-5 m-5">
-        <Link to="/quotes" className="typography-link">К котировкам</Link>
+        <Link to="/quotes" className="typography-link">Котировки</Link>
         <Link to="/" className="typography-link">Главная</Link>
       </header>
       <section>

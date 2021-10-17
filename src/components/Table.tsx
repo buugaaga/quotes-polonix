@@ -3,9 +3,10 @@ import { TickerType } from '../types'
 
 type Props = {
   quotes?: Map<string, TickerType>
+  onClickRow: (data: TickerType) => void
 }
 
-export const Table: FC<Props> = ({ quotes }) => {
+export const Table: FC<Props> = ({ quotes, onClickRow }) => {
   if (!quotes) {
     return <div>Нет данных</div>
   }
@@ -21,8 +22,8 @@ export const Table: FC<Props> = ({ quotes }) => {
           </tr>
         </thead>
         <tbody>
-          {Array.from(quotes.entries()).map(([key, data], index) => (
-            <tr key={data.id}>
+          {Array.from(quotes.entries()).map(([key, data]) => (
+            <tr key={data.id} onClick={() => onClickRow(data)}>
               <td>{key}</td>
               <td>{data.last}</td>
               <td>{data.high24hr}</td>
